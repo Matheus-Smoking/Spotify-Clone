@@ -3,7 +3,11 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
   width: 200px;
-  margin: 20px 17px;
+  margin: 20px 15px;
+  transition: all 0.2s linear 0s;
+  &:hover {
+    transform: translateY(-10px);
+  }
 `;
 
 export const Img = styled.img`
@@ -18,6 +22,8 @@ export const NameAlbum = styled.p`
   font-weight:bold;
   text-align:center;
   margin: 5px 0;
+  text-transform: capitalize;
+  font-weight:400;
 `;
 
 export const NameArtist = styled.p`
@@ -26,4 +32,5 @@ export const NameArtist = styled.p`
   font-weight:bold;
   text-align:center;
   margin: 5px 0;
+  font-weight:400;
 `;
