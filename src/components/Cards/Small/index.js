@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-import { Wrapper } from "./style";
+import { 
+  Card,
+  Img,
+  NameAlbum,
+  NameArtist
+} from "./style";
 
 class CardSmall extends Component { 
 
   render() {
     return (
-      <Wrapper>teste card small</Wrapper>
+      
+        <Card>
+          <Img />
+          <NameAlbum>teste de nome de album</NameAlbum>
+          <NameArtist>teste de nome do artista</NameArtist>
+        </Card>
     )
   }
 }
