@@ -8,16 +8,16 @@ class Home extends Component {
     // const url = window.location.search.split("&")
     const access = window.location.search.replace('?code=','')
     console.log(access);
-
-    const send = {
-      grant_type:'refresh_token',
-      code:access,
-      redirect_uri:"http://localhost:3000/",
+    
+    const data = {
+      grant_type: "authorization_code",
+      code: access,
+      redirect_uri:"http://localhost:3000/"
     }
 
     fetch('https://accounts.spotify.com/api/token',{
       method: 'POST',
-      body:JSON.stringify({send}),
+      body:JSON.stringify({data }),
       headers:{
         'Content-Type' : 'application/x-www-form-urlencoded;',
         'Authorization':'Basic MzM2ZTc3YmZhZWJjNDMwMjljNWUwODZkNmE1ZjE5MTY6NmY1OTFmMTg5OWE0NDdmYmJkMjllN2NiMWY1NWU3YjE='
