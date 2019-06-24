@@ -15,11 +15,11 @@ class Search extends Component {
      };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch(`http://localhost:3000/src/service/exemplo.json`)
     .then(res => res.json())
     .then(res => this.setState({ album: res.albums.items }))
-    .then(res => console.log(res.albums.items));
+    .then(res => console.log(this.state.album))
   }
 
   render() {
@@ -28,10 +28,25 @@ class Search extends Component {
           <TitleResult>Resultados encontrados para "{this.props.match.params.search}"</TitleResult>
           <Container>
           {
-          [0,1].map((index) => {
+          !this.state.album ? 'Loading...' : this.state.album.map((item,index) => {
             return (
-            <Link to={`/album/${index}`} >
-              <CardSmall key={index} />
+            <Link 
+              to={{
+                pathname:`/album/${index}`,
+                state: {
+                  url: this.props.match.params.search,
+                  link: item.images[0].url,
+                  album:item.name,
+                  artist:item.artists[0].name
+                }
+              }}
+            >
+              <CardSmall
+               key={index}
+               titulo={item.name}
+               artist={item.artists[0].name}
+               img={item.images[1].url}
+              />
             </Link>
             )
           })

@@ -14,44 +14,55 @@ class Album extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      album: []
+      album: null,
+      play:'none'
     };
   }
 
-  componentWillMount() {
-    console.log(this.props.match)
+  componentDidMount() {
+    fetch(`http://localhost:3000/src/service/exemplo-album.json`)
+    .then(res => res.json())
+    .then(res => this.setState({ album: res }))
+    .then(res => console.log(this.state.album))
   }
-  // componentWillMount() {
-  //   fetch('https://accounts.spotify.com/authorize?client_id=336e77bfaebc43029c5e086d6a5f1916&response_type=code',{
-  //     headers:{
-  //       'Authorization': 'Bearer ' + 'BQAzff3WTdzxViS69-ol7AUhPtN6W1J_mTw2K83YN6pJviGiGX_v5vfFcpFGc_PdfDzUNIAS7sBurVAJ2uU7XzsJZA3oXiCi6SHlL5gqoThO_iieCvGsNkhALblS5-8UZjqr8Qvx7LnvxDoGs3SwQQMTXSzsuIXa8xBpvxIrMVPlkyAggfDSUC59kdzCS9k3fbx8F_vceHBYXmByjEQ5ywq87ROpcia_OnZCFyhqoSUNg36-d2ZS6tasr5xsgDx6jgiAENGPjRJZtMeWESve'
-  //     }
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => this.setState({ album: res }))
-  //   console.log(this.state.album)
-  // }
 
+showplay(){
+  // this.setState({ play: 't0rue' }) 
+  console.log('foii')
+}
+  
 
   render() {
     return (
       <div>
-        <Back><Link to={`/albums/${this.props.match.params.album}`}>{`↩ Voltar`}</Link></Back>
+        <Back><Link to={`/albums/${this.props.location.state.url}`}>{`↩ Voltar`}</Link></Back>
         <Container>
-          <CardBig />
-          <Tracks>
+          <CardBig
+            img={this.props.location.state.link}
+            name={this.props.location.state.album}
+            artist={this.props.location.state.artist}
+          />
+          <Tracks >
             {
-              [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => {
+              !this.state.album ? 'Loading...' : this.state.album.items.map((item, index) => {
                 return (
+                  
                   <List
                     key={index}
-                    number={index}
+                    audio={item.preview_url}
+                    number={item.track_number}
+                    name={item.name}
+                    duration={item.duration_ms}
+                    
                   />
                 )
               })
             }
 
           </Tracks>
+          {/* <p onClick={() => {
+            this.setState({ play: 't0rue' })
+          }} >testeeeeeee</p> */}
         </Container>
       </div>
     )

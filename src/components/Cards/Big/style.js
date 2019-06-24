@@ -19,4 +19,10 @@ export const NameAlbum = styled.p`
   text-align:center;
   margin: 5px 0;
 `;
-
+export const Artist = styled.p`
+  color:#999;
+  font-size:18px;
+  font-weight:400;
+  text-align:center;
+  margin: 5px 0;
+`;

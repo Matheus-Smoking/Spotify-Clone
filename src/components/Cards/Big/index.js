@@ -3,6 +3,7 @@ import {
   Card,
   Img,
   NameAlbum,
+  Artist
 } from "./style";
 
 class CardSmall extends Component { 
@@ -10,8 +11,9 @@ class CardSmall extends Component {
   render() {
     return (
         <Card>
-          <Img />
-          <NameAlbum>teste de nome de album</NameAlbum>
+            <Img src={this.props.img} />
+            <NameAlbum>{this.props.name}</NameAlbum>
+            <Artist>{this.props.artist}</Artist>
         </Card>
     )
   }

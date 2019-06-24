@@ -3,16 +3,29 @@ import styled from 'styled-components'
 
 
 export const TracksItem = styled.li`
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin:0px 0 15px;
+  margin:0px auto 15px;
   position: relative;
   cursor: pointer;
   transition: .5s;
   padding-bottom: 6px;
-
+  position: relative;
+  padding: 5px 10px;
+  &.active{
+    background: #1DB954;
+    color: #fff;
+    border-radius: 22px;
+    border:none;
+    & strong, & p{
+      color:#fff
+    }
+    &:hover:before{
+      content:none;
+    }
+  }
   &:before {
     content: "";
     background: #999;
@@ -24,9 +37,10 @@ export const TracksItem = styled.li`
   }
   &:hover:before {
     content: "";
-    width: 100%;
+    width: 98%;
   }
 `;
+
 
 export const Number = styled.strong`
   font-size:15px;
@@ -49,4 +63,7 @@ export const Time = styled.p`
   text-align:center;
   margin: 0;
 `;
+
+
+
 

@@ -18,11 +18,10 @@ export const Img = styled.img`
 
 export const NameAlbum = styled.p`
   color:#fff;
-  font-size:24px;
+  font-size:20px;
   font-weight:bold;
   text-align:center;
   margin: 5px 0;
-  text-transform: capitalize;
   font-weight:400;
 `;
 
