@@ -16,6 +16,8 @@ class Search extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state.token);
+
     fetch(`http://localhost:3000/src/service/exemplo.json`)
     .then(res => res.json())
     .then(res => this.setState({ album: res.albums.items }))

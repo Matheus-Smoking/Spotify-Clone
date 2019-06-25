@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Search from './pages/search/';
 import Home from './pages/home/';
 import Album from './pages/album/';
+import {getToken, getAccess} from './service/HttpService'
 
 import {
   GlobalStyle,
@@ -18,7 +19,22 @@ class App extends Component {
     super(props);
     this.state = {
       busca: "",
+      token: null,
     };
+  }
+
+  componentDidMount() {
+    
+    if(window.location.search == '') return;
+    const access = window.location.search.replace('?code=','')
+    
+    getToken(access)   
+    .then(res => this.setState({ token: res }))
+    .then(res => console.log(this.state.token.access_token))
+  }
+
+  login(){
+    getAccess()
   }
   
 
@@ -31,6 +47,7 @@ class App extends Component {
   render() {
     return (
         <Hero>
+          <p onClick={() => this.login()} >login</p>
           <Container>
             <form onSubmit={(e) => this.search(e)} >
               <Label>Busque por artistas, álbuns ou músicas</Label>
