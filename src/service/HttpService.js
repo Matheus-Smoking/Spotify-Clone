@@ -11,6 +11,13 @@ export const getToken = (access) => {
         }
       })
       .then(res => res.json())
+      .then(res => {
+        const token = res.access_token
+        return(
+          localStorage.setItem("token", token)
+        )
+      })
+
   )
 }
 export const getAccess = () => {

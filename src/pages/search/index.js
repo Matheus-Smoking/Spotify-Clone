@@ -18,10 +18,22 @@ class Search extends Component {
   componentDidMount() {
     console.log(this.state.token);
 
-    fetch(`http://localhost:3000/src/service/exemplo.json`)
+    const accessToken = localStorage.getItem("token");
+
+    const seacrh = `https://api.spotify.com/v1/search?q=${this.props.match.params.search}&type=album&limit=20`;
+
+    fetch(seacrh,
+    {
+      headers: {
+        'Authorization': 'Bearer ' + accessToken,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }
+    })
     .then(res => res.json())
     .then(res => this.setState({ album: res.albums.items }))
     .then(res => console.log(this.state.album))
+
   }
 
   render() {
@@ -39,7 +51,8 @@ class Search extends Component {
                   url: this.props.match.params.search,
                   link: item.images[0].url,
                   album:item.name,
-                  artist:item.artists[0].name
+                  artist:item.artists[0].name,
+                  id:item.id
                 }
               }}
             >

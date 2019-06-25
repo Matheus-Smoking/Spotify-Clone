@@ -29,15 +29,13 @@ class App extends Component {
     const access = window.location.search.replace('?code=','')
     
     getToken(access)   
-    .then(res => this.setState({ token: res }))
-    .then(res => console.log(this.state.token.access_token))
+    
   }
 
   login(){
     getAccess()
   }
   
-
   search(e) {
     e.preventDefault();
     console.log(this.state.busca);

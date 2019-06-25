@@ -40,7 +40,7 @@ class List extends Component {
       <TracksItem onClick={() => this.play()} className={this.state.showAudio? 'active':''} >
         <TracksName><Number>{`${this.props.number}.`}</Number>{this.props.name}</TracksName>
         <Time>{((this.props.duration / 1000) / 60).toFixed(2).replace(".", ":")}</Time>
-        <audio ref={ this.meuBotao } autoplay >
+        <audio ref={ this.meuBotao } >
           <source src={this.props.audio} type="audio/ogg" />
           <source src={this.props.audio} type="audio/mpeg"/>
         </audio>

@@ -20,17 +20,26 @@ class Album extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:3000/src/service/exemplo-album.json`)
+    console.log(this.state.token);
+
+    const accessToken = localStorage.getItem("token");
+
+    const seacrh = `
+    https://api.spotify.com/v1/albums/${this.props.location.state.id}/tracks?limit=50`;
+
+    fetch(seacrh,
+    {
+      headers: {
+        'Authorization': 'Bearer ' + accessToken,
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }
+    })
     .then(res => res.json())
     .then(res => this.setState({ album: res }))
     .then(res => console.log(this.state.album))
-  }
 
-showplay(){
-  // this.setState({ play: 't0rue' }) 
-  console.log('foii')
-}
-  
+  }
 
   render() {
     return (
@@ -58,11 +67,7 @@ showplay(){
                 )
               })
             }
-
           </Tracks>
-          {/* <p onClick={() => {
-            this.setState({ play: 't0rue' })
-          }} >testeeeeeee</p> */}
         </Container>
       </div>
     )
