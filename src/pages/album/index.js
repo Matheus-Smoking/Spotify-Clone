@@ -50,7 +50,7 @@ class Album extends Component {
                   <List
                     key={index}
                     audio={item.preview_url}
-                    number={item.track_number}
+                    number={index}
                     name={item.name}
                     duration={item.duration_ms}
                     

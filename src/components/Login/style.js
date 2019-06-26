@@ -33,6 +33,7 @@ export const Action = styled.p`
     width: 49%;
     padding: 11px 8px;
     border-radius: 12px;
+    cursor: pointer;
     &:hover{
       background:#1DB954;
       color:#fff;

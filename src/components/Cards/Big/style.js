@@ -9,7 +9,10 @@ export const Card = styled.div`
 export const Img = styled.img`
   width: 250px;
   height: 250px;
-  background: #ccc;
+  &:hover{
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
+  }
 `;
 
 export const NameAlbum = styled.p`

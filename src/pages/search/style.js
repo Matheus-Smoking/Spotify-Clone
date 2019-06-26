@@ -15,6 +15,13 @@ export const TitleResult = styled.h1`
   color:#fff;
 `;
 
+export const ActionHome = styled.p`
+  & a{
+    color:#fff;
+    text-decoration: none;
+  }
+`;
+
 export const NoSeach = styled.h2`
   color: #fff;
   text-align: center;
