@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {getTracks} from '../../service/TracksService'
 import CardBig from '../../components/Cards/Big/';
 import List from '../../components/List/';
+import Placeholder from '../../components/Placeholder/ListPlaceholder'
 
 import {
   Container,
@@ -15,30 +17,12 @@ class Album extends Component {
     super(props);
     this.state = {
       album: null,
-      play:'none'
     };
   }
 
   componentDidMount() {
-    console.log(this.state.token);
-
-    const accessToken = localStorage.getItem("token");
-
-    const seacrh = `
-    https://api.spotify.com/v1/albums/${this.props.location.state.id}/tracks?limit=50`;
-
-    fetch(seacrh,
-    {
-      headers: {
-        'Authorization': 'Bearer ' + accessToken,
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      }
-    })
-    .then(res => res.json())
+    getTracks(this.props.location.state.id)
     .then(res => this.setState({ album: res }))
-    .then(res => console.log(this.state.album))
-
   }
 
   render() {
@@ -53,7 +37,14 @@ class Album extends Component {
           />
           <Tracks >
             {
-              !this.state.album ? 'Loading...' : this.state.album.items.map((item, index) => {
+              !this.state.album ?
+              [0,1,2,3,4,5,6,7,8,9].map(() => {
+                return(
+                  <Placeholder></Placeholder>
+                )
+              }) 
+               : 
+               this.state.album.items.map((item, index) => {
                 return (
                   
                   <List

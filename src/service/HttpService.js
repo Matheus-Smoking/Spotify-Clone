@@ -1,22 +1,23 @@
 export const getToken = (access) => {
+  const urltoken = access.replace('?code=','')
+  console.log(urltoken, 'acesso tokens')
   return (
     fetch('https://accounts.spotify.com/api/token',
       {
         method: 'post',
-        body: `grant_type=authorization_code&code=${access}&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F`,
+        body: `grant_type=authorization_code&code=${urltoken}&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F`,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Authorization': 'Basic MzM2ZTc3YmZhZWJjNDMwMjljNWUwODZkNmE1ZjE5MTY6NmY1OTFmMTg5OWE0NDdmYmJkMjllN2NiMWY1NWU3YjE=',
-          'Cache-Control': 'no-cache'
         }
       })
       .then(res => res.json())
       .then(res => {
-        const token = res.access_token
-        return(
-          localStorage.setItem("token", token)
-        )
+        const token = res.access_token;
+        window.location.search = ''
+        return localStorage.setItem("token", token)
       })
+
 
   )
 }

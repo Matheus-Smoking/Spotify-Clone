@@ -15,3 +15,15 @@ export const TitleResult = styled.h1`
   color:#fff;
 `;
 
+export const NoSeach = styled.h2`
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  width: 95%;
+  margin: 40px auto;
+  @media screen and (min-width: 900px) {
+    width: 70%;
+  }
+`;
+
+
