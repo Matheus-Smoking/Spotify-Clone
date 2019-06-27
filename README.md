@@ -6,7 +6,7 @@ Esse projeto ultiliza a api do spotify para buscar musicas e tocar um preview
 
 ### Para que o projeto funcione é necessario deixar o CORS Habilitado para que possar fazer os request necessarios
 
-Uma forma de Habilitar é instalando o plugin do chrome e ativando ele 
+Uma forma de Habilitar é instalando o plugin do chrome e ativando ele. 
 Para Installar o plugin [clique aqui](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf)
 
 ### Para rodar o Projeto:
