@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const Card = styled.div`
   width: 200px;
   margin: 20px 15px;

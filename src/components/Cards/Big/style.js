@@ -1,9 +1,14 @@
 import styled from 'styled-components'
 
-
 export const Card = styled.div`
   width: 250px;
   margin: 35px auto;
+`;
+
+export const Cardimg = styled.div`
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
 `;
 
 export const Img = styled.img`

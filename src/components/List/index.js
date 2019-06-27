@@ -27,13 +27,6 @@ class List extends Component {
       this.setState({ showAudio: true }) 
     }
   }
-  // componentDidUpdate() {
-  //     console.log('estou sendo atualizado')
-  // }
-
-  // componentWillReceiveProps(nextProps){
-  //   console.log(this.props, "teste")
-  // }
 
   render() {
     return (

@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import { 
+import {
   Card,
+  Cardimg,
   Img,
   NameAlbum,
   Artist
 } from "./style";
 
-class CardSmall extends Component { 
+class CardSmall extends Component {
 
   render() {
     return (
-        <Card>
-            <Img src={this.props.img} />
-            <NameAlbum>{this.props.name}</NameAlbum>
-            <Artist>{this.props.artist}</Artist>
-        </Card>
+      <Card>
+        <Cardimg>
+          <Img src={this.props.img} />
+        </Cardimg>
+        <NameAlbum>{this.props.name}</NameAlbum>
+        <Artist>{this.props.artist}</Artist>
+      </Card>
     )
   }
 }

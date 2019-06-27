@@ -4,13 +4,8 @@ import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader'
 import App from './app'
 import { createStore } from 'redux';
+import Counter from './reducers/Counter'
 
-const Counter = (state ='0' , action ) =>{
-  switch (action.type){
-    case 'ADDSTATE' : return state = action.url;
-  }
-  return state
-}
 
 const store = createStore(Counter);
 

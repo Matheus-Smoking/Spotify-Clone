@@ -7,14 +7,12 @@ import {
 } from "./style";
 
 class CardSmall extends Component { 
-
   constructor(props){
     super(props);
   }
 
   render() {
-    return (
-      
+    return (  
         <Card>
           <Img src={this.props.img} />
           <NameAlbum>{this.props.titulo}</NameAlbum>
