@@ -20,7 +20,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.24.1",
     "style-loader": "^0.13.1",
-    "webpack-dashboard": "^0.2.0",
+    "webpack-dashboard": "^3.3.7",
     "@kadira/storybook": "^2.21.0"
   },
   "dependencies": {
